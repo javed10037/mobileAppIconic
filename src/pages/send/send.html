@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Send</ion-title>
+  </ion-navbar>
+ </ion-header>
+<ion-content>
+<form #sForm="ngForm" novalidate>
+    <ion-list no-lines class="form-input-fields">
+  <br /><br /><br /><br /><br />
+      
+    <ion-item>
+      <ion-input [(ngModel)]="senddetails.address" placeholder="Enter address" name="address" type="text" #address="ngModel" spellcheck="false" autocapitalize="off" class="login-input"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <p ion-text [hidden]="address.valid || submitted == false" color="danger" padding-left>
+       Address is required
+      </p>
+
+      <ion-item>
+
+        <ion-input [(ngModel)]="senddetails.balance" placeholder="Enter Balance" name="balance" type="text" #subject="ngModel" spellcheck="false" autocapitalize="off" class="login-input"
+          required>
+        </ion-input>
+      </ion-item>
+      <!-- <p ion-text [hidden]="balance.valid || submitted == false" color="danger" padding-left>
+        Balance is required
+      </p> -->
+
+      <ion-item>
+        <ion-input [(ngModel)]="senddetails.pin" placeholder="Enter pin" name="pin" type="password" #pin="ngModel" required class="login-input" >
+        </ion-input>
+      </ion-item>
+      <p ion-text [hidden]="pin.valid || submitted == false" color="danger" padding-left>
+        Pin is required
+      </p>
+     
+      <ion-row responsive-sm>
+        <ion-col >
+          <button class="button-backcolor" ion-button (click)="onsendBalence(sForm)" type="submit" block>Send</button>
+          <button class="button-backcolor" ion-button (click)="onsendBalence(sForm)" type="submit" block>Resset</button>
+        </ion-col>
+      </ion-row>
+      <hr>
+     
+    </ion-list>
+
+
+  </form>
+</ion-content>
